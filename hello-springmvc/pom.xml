@@ -8,8 +8,9 @@
     <artifactId>hello-springmvc</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <!--ReadMe.txt步骤2复制点起-->
+
     <dependencies>
+        <!--ReadMe.txt步骤2复制点起-->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -20,8 +21,23 @@
             <artifactId>spring-webmvc</artifactId>
             <version>5.2.10.RELEASE</version>
         </dependency>
+        <!--ReadMe.txt步骤2复制点止-->
+        <!--ReadMe.txt步骤5.6.③/④复制点起-->
+        <!--jackson依赖-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.11.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.6</version>
+        </dependency>
+        <!--ReadMe.txt步骤5.6.③/④复制点止-->
     </dependencies>
-    <!--ReadMe.txt步骤2复制点止-->
+
+
 
 
 </project>

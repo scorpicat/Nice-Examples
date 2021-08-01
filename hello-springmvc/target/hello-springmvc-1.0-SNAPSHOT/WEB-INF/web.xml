@@ -12,7 +12,7 @@
         写了之后就可以使用如下init-param来指定springmvc配置文件的地址（ReadMe.txt的3.4）-->
         <init-param><!--DispatchServlet是一个Servlet，所以创建它时会执行init()，这里实际上就是配置init()的初始参数-->
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:myweb-servlet.xml</param-value><!--classpath指的就是resource下的资源-->
+            <param-value>classpath:springmvc-config.xml</param-value><!--classpath指的就是resource下的资源-->
         </init-param>
         <load-on-startup>1</load-on-startup><!--必须配-->
 
@@ -22,13 +22,40 @@
         <!--
             有两种方式配置：
             1.使用*.xx 后缀类型配置，如 *.do
-            2.直接使用“/”配置，如/buy
+            2.直接使用“/”配置，表示所有/开头的请求都交给DisPatchServlet来处理，这会导致tomcat中的默认default servlet失效，而这个默认servlet正是处理
+            能够处理静态资源（即能访问），而DispatchServlet是不能够处理静态资源的，因为controller中没有对应的控制器去处理，所以会导致访问静态资源失效。
         -->
-<!--        <url-pattern>/buy</url-pattern>-->
+<!--        <url-pattern>/</url-pattern> -->
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
     <!--ReadMe.txt步骤3复制点止-->
 
+    <!--ReadMe.txt步骤7复制点起-->
+    <filter>
+        <filter-name>characterEncodingFilter</filter-name>
+        <!--使用springmvc框架自带的字符编码过滤器-->
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <!--设置编码格式-->
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <!--强制请求编码格式转换-->
+        <init-param>
+            <param-name>forceRequestEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <!--强制响应编码格式转换-->
+        <init-param>
+            <param-name>forceResponseEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>characterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern><!--设置过滤器作用范围，此处为整个项目-->
+    </filter-mapping>
+    <!--ReadMe.txt步骤7复制点止-->
 </web-app>
 
 
