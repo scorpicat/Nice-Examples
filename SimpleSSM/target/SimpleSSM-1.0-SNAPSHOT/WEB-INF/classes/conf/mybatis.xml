@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+<!--    &lt;!&ndash;环境配置，连接的数据库，这里使用的是MySQL&ndash;&gt;-->
+<!--    <environments default="mysql">-->
+<!--        <environment id="mysql">-->
+<!--            &lt;!&ndash;指定事务管理的类型，这里简单使用Java的JDBC的提交和回滚设置&ndash;&gt;-->
+<!--            <transactionManager type="JDBC"></transactionManager>-->
+<!--            &lt;!&ndash;dataSource 指连接源配置，POOLED是JDBC连接对象的数据源连接池的实现&ndash;&gt;-->
+<!--            <dataSource type="POOLED">-->
+<!--                <property name="driver" value="com.mysql.jdbc.Driver"></property>-->
+<!--                <property name="url" value="jdbc:mysql://127.0.0.1:3306/mybbs"></property>-->
+<!--                <property name="username" value="root"></property>-->
+<!--                <property name="password" value="root"></property>-->
+<!--            </dataSource>-->
+<!--        </environment>-->
+<!--    </environments>-->
+    <typeAliases>
+    <!--name:实体类所在的包名(不是实体类的包名也可以)-->
+        <package name="domain"/>
+    </typeAliases>
+    <!--这是告诉Mybatis去哪找持久化类的映射文件-->
+    <mappers>
+        <!--name是包名，使用packet的要求：1.mapper文件名称必须和dao接口的名称一致；
+        2.mapper文件必须和dao接口在同一目录下-->
+        <package name="dao"/>
+    </mappers>
+</configuration>
+
