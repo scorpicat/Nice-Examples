@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.ModelAndViewDefiningException;
 import vo.Person;
 
 import javax.jws.WebParam;
@@ -161,4 +162,27 @@ public class MyController {
         return "这句话是当做数据响应的，而不是视图处理";
     }
     //ReadMe.txt 5.6.④ 返回值类型为Object时，响应ajax 止
+
+    @RequestMapping("/forwardAndRedirect.do")
+    public String toforwardAndRedirect(){
+        return "forwardAndRedirect";
+    }
+
+    @RequestMapping("/aForwardBefore.do")
+    public ModelAndView toFowardAfter(String name,String age){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("forward:/aForwardAfter.jsp");
+        mv.addObject("name",name);
+        mv.addObject("age",age);
+        return mv;
+    }
+    @RequestMapping("/redirectA.do")
+    public ModelAndView toRedirectB(String name,String age){
+        ModelAndView mv = new ModelAndView();
+        //在这里相当于给redirectB.jsp的请求带去新参数（也就是说重定向在不处理的情况下是不会把原页面的请求参数带过去的），但是不能直接访问到，在jsp中，要用${param}来访问
+        mv.addObject("myname",name);
+        mv.addObject("myage",age);
+        mv.setViewName("redirect:/redirectB.jsp");
+        return mv;
+    }
 }

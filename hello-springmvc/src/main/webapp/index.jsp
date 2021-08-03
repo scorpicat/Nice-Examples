@@ -67,6 +67,9 @@
 
 Finally.配置好Project Structure中的Modules部分和Facets部分；配置tomcat<br/>
 
+<h2>其他知识点</h2>
+<h3>1.<a href="user/forwardAndRedirect.do">Springmvc中的重定向与转发</a></h3>
+
 
 
 
