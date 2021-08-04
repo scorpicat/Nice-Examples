@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>helloPage</title>
+    <title>SpringMVC手册</title>
 </head>
 <body>
 <h2>springmvc搭建</h2>
