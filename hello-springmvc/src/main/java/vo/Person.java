@@ -4,10 +4,6 @@ public class Person {
     private String name;
     private Integer age;
 
-    public Person() {
-        System.out.println("==Person类被实例化==");
-    }
-
     public String getName() {
         return name;
     }

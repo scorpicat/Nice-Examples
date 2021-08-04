@@ -1,11 +1,11 @@
 package controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import exception.AgeException;
+import exception.MyUserException;
+import exception.NameException;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.ModelAndViewDefiningException;
 import vo.Person;
@@ -185,4 +185,43 @@ public class MyController {
         mv.setViewName("redirect:/redirectB.jsp");
         return mv;
     }
+    @RequestMapping("/ExceptionSolvePage.do")
+    public String toExceptionSolvePage(){
+        return "ExceptionSolvePage";
+    }
+
+    @RequestMapping("/doException.do")
+    public ModelAndView doExceptionTest(Person p) throws MyUserException {
+        if(p.getName().length()>3){
+            throw new NameException("报了个姓名异常");
+        }
+        if(p.getAge()>200){
+            throw new AgeException("报了个年龄异常");
+        }
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("showPersonInfo");
+        mv.addObject("age",p.getAge());
+        mv.addObject("name",p.getName());
+        return mv;
+    }
+
+    //拦截器
+    @RequestMapping("/InterceptionPage.do")
+    public String toInterceptionPage(){
+        return "interceptionPage";
+    }
+    @RequestMapping("/doInteception.do")
+    public ModelAndView doInterception(){
+        System.out.println("MyController--doInterception()方法");
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("showInterception");
+        mv.addObject("name","zhangsan");
+        return mv;
+    }
+    //springmvc流程页面
+    @RequestMapping("/springmvcProcessPage.do")
+    public String tospringmvcProcessPage(){
+        return "springmvcProcessPage";
+    }
+
 }

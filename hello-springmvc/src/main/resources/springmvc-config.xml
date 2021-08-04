@@ -22,13 +22,24 @@
         <mvc:annotation-driven/>
         <!--ReadMe.txt步骤5.5.④复制点止-->
 
-        <!--ReadMe.txt步骤3.4.①.I复制点起-->
+        <!--ReadMe.txt步骤3.4.②.I复制点起-->
         <mvc:default-servlet-handler/>
-        <!--ReadMe.txt步骤3.4.①.I复制点止-->
+        <!--ReadMe.txt步骤3.4.②.I复制点止-->
 
-        <!--ReadMe.txt步骤3.4.①.II复制点起-->
+        <!--ReadMe.txt步骤3.4.②.II复制点起-->
         <!--mapping需要以/开头，**是通配符，代表子资源-->
         <mvc:resources mapping="/static/**" location="/static/"/>
-        <!--ReadMe.txt步骤3.4.①.II复制点止-->
+        <!--ReadMe.txt步骤3.4.②.II复制点止-->
 
+        <!--组件扫描器：@controllerAdvice所在的包-->
+        <context:component-scan base-package="handler"/>
+
+        <!--声明拦截器，拦截器配置（0或多个）-->
+        <mvc:interceptors>
+                <mvc:interceptor>
+                        <!--**是通配符，表示子请求及孙请求-->
+                        <mvc:mapping path="/user/**"/>
+                        <bean class="interception.MyInterception"/>
+                </mvc:interceptor>
+        </mvc:interceptors>
 </beans>

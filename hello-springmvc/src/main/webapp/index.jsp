@@ -11,7 +11,7 @@
     <title>helloPage</title>
 </head>
 <body>
-<h2>springmvc</h2>
+<h2>springmvc搭建</h2>
 <p>整理自<a href="https://www.bilibili.com/video/BV1sk4y167pD?p=40&spm_id_from=pageDriver">点击跳转视频页面</a></p>
 <p>请阅读项目中的ReadMe.txt</p>
 1.新建web maven工程<br/>
@@ -67,9 +67,11 @@
 
 Finally.配置好Project Structure中的Modules部分和Facets部分；配置tomcat<br/>
 
-<h2>其他知识点</h2>
+<h2>SpringMVC重要知识点</h2>
 <h3>1.<a href="user/forwardAndRedirect.do">Springmvc中的重定向与转发</a></h3>
-
+<h3>2.<a href="user/ExceptionSolvePage.do">springmvc的统一异常处理方式</a></h3>
+<h3>2.<a href="user/InterceptionPage.do">springmvc的拦截器</a></h3>
+<h3>2.<a href="user/springmvcProcessPage.do">springmvc的执行流程</a></h3>
 
 
 

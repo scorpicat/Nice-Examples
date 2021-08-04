@@ -69,7 +69,9 @@ Finally.配置好Project Structure中的Modules部分和Facets部分；配置tom
 
 <h2>其他知识点</h2>
 <h3>1.<a href="user/forwardAndRedirect.do">Springmvc中的重定向与转发</a></h3>
-
+<h3>2.<a href="user/ExceptionSolvePage.do">springmvc的统一异常处理方式</a></h3>
+<h3>2.<a href="user/InterceptionPage.do">springmvc的拦截器</a></h3>
+<h3>2.<a href="user/springmvcProcessPage.do">springmvc的执行流程</a></h3>
 
 
 
