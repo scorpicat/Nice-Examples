@@ -1,0 +1,5 @@
+1.本项目中只演示mybatis的配置及操作，所以只需用到mybatis和junit，不需要spring支持
+2.创建一个utils包，其下创建一个工具类MyBatisUtils，用于获取sqlSession
+3.编写dao接口及对应的mapper配置文件
+4.编写pojo实体对象类
+5.在test中测试即可

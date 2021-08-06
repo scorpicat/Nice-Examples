@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace=绑定一个对应的Dao/Mapper接口-->
+<mapper namespace="dao.UserMapper">
+    <resultMap id="UserResultMap" type="User">
+        <!--property表示实体类中的属性名，column表示与之对应的表中的字段名-->
+        <result property="username" column="name"/>
+    </resultMap>
+
+    <!--select查询语句：对象-->
+    <select id="getUserbyId" parameterType="Integer" resultMap="UserResultMap">
+        select * from mybatis.user where id = #{id}
+    </select>
+    <!--select查询语句：列表-->
+<!--    在实体类的属性与表字段完全对应时使用resultType，不一致需要使用resultMap
+            <select id="getUserList" resultType="user">-->
+<!--        select * from mybatis.user-->
+<!--        </select>-->
+    <select id="getUserList"  resultMap="UserResultMap">
+        select * from mybatis.user
+    </select>
+    <!--insert语句-->
+    <insert id="addUser" parameterType="User">
+        insert into mybatis.user(`name`,`pwd`) values(#{name},#{pwd})
+    </insert>
+    <!--updata语句-->
+    <update id="updateUser" parameterType="User">
+        update mybatis.user set `name`=#{name},`pwd`=#{pwd} where `id` = #{id}
+    </update>
+    <!--delete语句-->
+    <delete id="deleteUser" parameterType="int">
+        delete from mybatis.user where `id` = #{id}
+    </delete>
+
+    <update id="updateByMap" parameterType="Map">
+        update mybatis.user set`name` = #{name} where `id` = #{id};
+    </update>
+
+</mapper>
