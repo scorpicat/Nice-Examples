@@ -8,11 +8,11 @@
     <!--组件扫描器-->
     <context:component-scan base-package="controller"/>
 
-    <!--视图解析器-->
+    <!--视图解析器:默认的，用于解析jsp，如果要解析html可以用其他的如thymeLeaf-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
-    <!--注册驱动:选择结尾为mvc的。功能：响应ajax的请求返回json，解决静态资源问题-->
+    <!--注册驱动:(选择结尾为mvc的)。功能：响应ajax的请求返回json，解决静态资源问题-->
     <mvc:annotation-driven/>
 </beans>
